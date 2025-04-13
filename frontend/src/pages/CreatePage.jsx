@@ -46,7 +46,8 @@ const CreatePage = () => {
         description: "Creating your product...",
         isClosable: true,
       });
-      const res = await fetch("http://localhost:5000/api/products", {
+      const API_BASE_URL = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${API_BASE_URL}/api/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

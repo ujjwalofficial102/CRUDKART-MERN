@@ -12,7 +12,8 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const res = await fetch("http://localhost:5000/api/products");
+      const API_BASE_URL = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${API_BASE_URL}/api/products`);
       const data = await res.json();
       dispatch(getAllProducts(data.data));
     };

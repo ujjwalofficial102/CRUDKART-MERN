@@ -42,8 +42,8 @@ const ProductCard = ({ product }) => {
         description: "Deleting product...",
         isClosable: true,
       });
-
-      const res = await fetch(`http://localhost:5000/api/products/${pid}`, {
+      const API_BASE_URL = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${API_BASE_URL}/api/products/${pid}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -95,7 +95,8 @@ const ProductCard = ({ product }) => {
         description: "Updating product...",
         isClosable: true,
       });
-      const res = await fetch(`http://localhost:5000/api/products/${pid}`, {
+      const API_BASE_URL = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${API_BASE_URL}/api/products/${pid}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
