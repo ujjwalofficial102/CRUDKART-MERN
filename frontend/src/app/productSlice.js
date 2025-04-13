@@ -15,7 +15,10 @@ export const productSlice = createSlice({
     createProduct: (state, action) => {
       state.products.push(action.payload);
     },
-    updateProduct: (state, action) => {},
+    updateProduct: (state, action) => {
+      const { pid, newData } = action.payload;
+      state.products = state.products.map((p) => (p._id === pid ? newData : p));
+    },
     deleteProduct: (state, action) => {
       const pid = action.payload;
       state.products = state.products.filter((p) => p._id !== pid);

@@ -17,7 +17,7 @@ const HomePage = () => {
       dispatch(getAllProducts(data.data));
     };
     fetchProducts();
-  }, [products]);
+  }, []);
 
   return (
     <Container maxW="container.xl" py={12}>
